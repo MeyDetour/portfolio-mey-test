@@ -1,0 +1,13 @@
+a:2:{i:0;a:6:{s:4:"type";i:16384;s:7:"message";s:365:"The "Symfony\Component\HttpKernel\DependencyInjection\Extension" class is considered internal since Symfony 7.1, to be deprecated in 8.1; use Symfony\Component\DependencyInjection\Extension\Extension instead. It may change without further notice. You should not use it from "Lexik\Bundle\JWTAuthenticationBundle\DependencyInjection\LexikJWTAuthenticationExtension".";s:4:"file";s:110:"/home/mey/Documents/symfonyProject/sousdossier/portfolio-mey/vendor/symfony/error-handler/DebugClassLoader.php";s:4:"line";i:341;s:5:"trace";a:1:{i:0;a:3:{s:4:"file";s:105:"/home/mey/Documents/symfonyProject/sousdossier/portfolio-mey/vendor/symfony/http-kernel/Bundle/Bundle.php";s:4:"line";i:143;s:8:"function";s:12:"class_exists";}}s:5:"count";i:1;}i:1;a:6:{s:4:"type";i:16384;s:7:"message";s:758:"Relying on non-optimal defaults for ID generation is deprecated, and IDENTITY
+results in SERIAL, which is not recommended.
+Instead, configure identifier generation strategies explicitly through
+configuration.
+We currently recommend "SEQUENCE" for "Doctrine\DBAL\Platforms\PostgreSQLPlatform", when using DBAL 3,
+and "IDENTITY" when using DBAL 4,
+so you should probably use the following configuration before upgrading to DBAL 4,
+and remove it after deploying that upgrade:
+
+$configuration->setIdentityGenerationPreferences([
+    "Doctrine\DBAL\Platforms\PostgreSQLPlatform" => ClassMetadata::GENERATOR_TYPE_SEQUENCE,
+]);
+ (ClassMetadataFactory.php:635 called by ClassMetadataFactory.php:546, https://github.com/doctrine/orm/issues/8893, package doctrine/orm)";s:4:"file";s:131:"/home/mey/Documents/symfonyProject/sousdossier/portfolio-mey/vendor/doctrine/deprecations/lib/Doctrine/Deprecations/Deprecation.php";s:4:"line";i:210;s:5:"trace";a:1:{i:0;a:5:{s:4:"file";s:131:"/home/mey/Documents/symfonyProject/sousdossier/portfolio-mey/vendor/doctrine/deprecations/lib/Doctrine/Deprecations/Deprecation.php";s:4:"line";i:108;s:8:"function";s:24:"delegateTriggerToBackend";s:5:"class";s:33:"Doctrine\Deprecations\Deprecation";s:4:"type";s:2:"::";}}s:5:"count";i:1;}}

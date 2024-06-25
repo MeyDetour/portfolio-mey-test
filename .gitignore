@@ -1,4 +1,8 @@
 # Logs
+/var/
+/vendor/
+/node_modules/
+
 logs
 *.log
 npm-debug.log*
