@@ -17,7 +17,7 @@ class CertificationController extends AbstractController
     #[Route('/certifis', name: 'certifications')]
     public function show(CertificationRepository $certificationRepository): Response
     {
-    $certifs = $certificationRepository->findAll();
+    $certifs = $certificationRepository->findAll(); $coucou = 'coucou';
     if(count($certifs)==0){
         return $this->redirectToRoute('new_certification');
     }
