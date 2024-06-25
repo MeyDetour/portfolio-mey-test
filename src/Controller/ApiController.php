@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Project;
 use App\Repository\CertificationRepository;
 use App\Repository\LastProjectRepository;
 use App\Repository\ProjectRepository;
@@ -26,14 +27,14 @@ class ApiController extends AbstractController
         $data = [];
         foreach ($technologyRepository->findAll() as $tech) {
             $imageUrl = null;
-            $imageName=null;
+            $imageName = null;
             if ($tech->getImage()) {
-                $imageUrl = $imageService->getImageUrl($tech->getImage(),$this->logoFilter);
-                $imageName=$tech->getImage()->getImageName();
+                $imageUrl = $imageService->getImageUrl($tech->getImage(), $this->logoFilter);
+                $imageName = $tech->getImage()->getImageName();
 
             }
             $data[] = [
-                "id"=>$tech->getId(),
+                "id" => $tech->getId(),
                 "name" => $tech->getName(),
                 "image" => $imageUrl,
                 "imageName" => $imageName
@@ -69,12 +70,12 @@ class ApiController extends AbstractController
         $data = [];
         foreach ($repository->findAll() as $datum) {
             $data[] = [
-                "id"=>$datum->getId(),
+                "id" => $datum->getId(),
                 "name" => $datum->getTitle(),
                 "description" => $datum->getDescription(),
-                "point1"=>$datum->getPoint1(),
-                "point2"=>$datum->getPoint2(),
-                "point3"=>$datum->getPoint3(),
+                "point1" => $datum->getPoint1(),
+                "point2" => $datum->getPoint2(),
+                "point3" => $datum->getPoint3(),
             ];
         }
         return $this->json($data);
@@ -106,19 +107,40 @@ class ApiController extends AbstractController
     }
 
     #[Route('/projects', name: 'get_projects')]
-    public function getProject(ProjectRepository $repository, ImageService $imageService): Response
+    public function getProjects(ProjectRepository $repository, ImageService $imageService): Response
     {
         $data = [];
         foreach ($repository->findAll() as $datum) {
             $imageUrl = null;
             $imageName = null;
             if ($datum->getImage()) {
-                $imageUrl = $imageService->getImageUrl($datum->getImage(),$this->projectFilter);
-                $imageName=$datum->getImage()->getImageName();
+                $imageUrl = $imageService->getImageUrl($datum->getImage(), $this->projectFilter);
+                $imageName = $datum->getImage()->getImageName();
             }
 
             $data[] = [
-                "id"=>$datum->getId(),
+                "id" => $datum->getId(),
+                "imageName" => $imageName,
+                "image" => $imageUrl,
+            ];
+        }
+        return $this->json($data);
+    }
+
+    #[Route('/project/{id}', name: 'get_project')]
+    public function getProject(Project $datum, ImageService $imageService): Response
+    {
+        $imageUrl = null;
+        $imageName = null;
+        if ($datum->getImage()) {
+            $imageUrl = $imageService->getImageUrl($datum->getImage(), $this->projectFilter);
+            $imageName = $datum->getImage()->getImageName();
+        }
+
+
+        return $this->json(
+            [
+                "id" => $datum->getId(),
                 "name" => $datum->getName(),
                 "imageName" => $datum->$imageName(),
                 "description" => $datum->getDescription(),
@@ -127,9 +149,8 @@ class ApiController extends AbstractController
                 "step1" => $datum->getStep1(),
                 "step2" => $datum->getStep2(),
                 "step3" => $datum->getStep3(),
-            ];
-        }
-        return $this->json($data);
+            ]
+        );
     }
 
     #[Route('/qualities', name: 'get_qualities')]
@@ -138,7 +159,7 @@ class ApiController extends AbstractController
         $data = [];
         foreach ($repository->findAll() as $datum) {
             $data[] = [
-                "id"=>$datum->getId(),
+                "id" => $datum->getId(),
                 "name" => $datum->getName(),
                 "description" => $datum->getDescription()
             ];
@@ -153,13 +174,13 @@ class ApiController extends AbstractController
 
         foreach ($repository->findAll() as $datum) {
             $imageUrl = null;
-            $imageName=null;
+            $imageName = null;
             if ($datum->getImage()) {
-                $imageUrl = $imageService->getImageUrl($datum->getImage(),$this->iconeFilter);
-                $imageName=$datum->getImage()->getImageName();
+                $imageUrl = $imageService->getImageUrl($datum->getImage(), $this->iconeFilter);
+                $imageName = $datum->getImage()->getImageName();
             }
             $data[] = [
-                "id"=>$datum->getId(),
+                "id" => $datum->getId(),
                 "link" => $datum->getLink(),
                 "image" => $imageUrl,
                 "imageName" => $imageName,
