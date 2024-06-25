@@ -14,6 +14,9 @@ class CertificationType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
+            ->add('point1')
+            ->add('point2')
+            ->add('point3')
         ;
     }
 

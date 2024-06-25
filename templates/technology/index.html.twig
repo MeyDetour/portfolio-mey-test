@@ -15,7 +15,7 @@
                 <a href="{{ path('remove_technology',{'id':tech.id}) }}">Supprimer</a>
                 <span class="fs-2">{{ tech.name }}</span>
 
-                {% if proj.image is not null %}
+                {% if tech.image is not null %}
                 <img class="w-50" src="{{ vich_uploader_asset(tech.image) }}" alt="{{ tech.name }}">
            {% endif %}
             </div>

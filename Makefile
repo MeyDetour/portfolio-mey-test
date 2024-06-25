@@ -36,6 +36,10 @@ reload-migrations:
 
 cc:
 	$(SYMFONY_CONSOLE) cache:clear
+user:
+	$(SYMFONY_CONSOLE) make:user
+	$(SYMFONY_CONSOLE) make:registration-form
+	$(SYMFONY_CONSOLE) make:auth
 
 ## -------- fixtures --------
 load-fixtures:
