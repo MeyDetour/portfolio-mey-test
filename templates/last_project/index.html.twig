@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LastProjectController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('edit_last_project',{'id':proj.id}) }}">Modifier</a>
+
+    <p>
+        {{ proj.name }}
+    </p>  <p>
+        {{ proj.description }}
+    </p>  <p>
+        {{ proj.objectifs }}
+    </p>  <p>
+        {{ proj.technology }}
+    </p>
+
+{% endblock %}

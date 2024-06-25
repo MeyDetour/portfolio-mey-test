@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CertificationController!{% endblock %}
+
+{% block body %}
+        <a class="my-5" href="{{ path('new_certification') }}">Ajouter une certification</a>
+
+    <div class="d-flex flex-row my-5 ">
+    {% for certif in certifs %}
+
+               <div class="mx-2 w-25 border border-secoundary  d-flex flex-column align-items-center">
+                    <a href="{{ path('edit_certification',{'id':certif.id}) }}">Modifier</a>
+                   <a href="{{ path('remove_certification',{'id':certif.id}) }}">Supprimer</a>
+                    <p>{{ certif.title }}</p>
+
+                    <p>{{ certif.description }}</p>
+                </div>
+
+{% endfor %} </div>
+{% endblock %}

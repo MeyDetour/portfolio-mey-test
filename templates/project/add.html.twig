@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TextController!{% endblock %}
+
+{% block body %}
+    {{  form_start(form)}}
+    <button class="red" type="submit">{{ projet is defined ? 'Modifier':"Créer" }}</button>
+    {{ form_end(form) }}
+
+
+{% endblock %}
