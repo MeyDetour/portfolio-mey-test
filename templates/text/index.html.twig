@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TextController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('edit_texts',{'id':text.id}) }}">Modifier</a>
+
+        <h2>Home page text : </h2>
+        <p>{{ text.homePageDescription }}</p>
+
+        <h2>About us text : </h2>
+        <p>{{ text.aboutDescription }}</p>
+
+{% endblock %}

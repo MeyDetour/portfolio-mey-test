@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProjectController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('new_projet') }}">Nouveau projet</a>
+    <div class="d-flex flex-row my-5 ">
+        {% for proj in projets %}
+            <div class="mx-2 w-25 border border-secoundary  d-flex flex-column align-items-center">
+                <span class="fs-2">{{ proj.name }}</span>
+                <p>{{ proj.description }}</p>
+             {% if proj.image is not null %}
+                <img class="w-50" src="{{ vich_uploader_asset(proj.image) }}" alt="{{ proj.image.imageName }}">
+           {% endif %}
+                <a href="{{ path('edit_projet',{'id':proj.id}) }}">Modifier</a>
+                <a href="{{ path('remove_project',{'id':proj.id}) }}">Supprimer</a>
+                <a href="{{ path('project_add_image',{'id':proj.id}) }}">Image</a>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

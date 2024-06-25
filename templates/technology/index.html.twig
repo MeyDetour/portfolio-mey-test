@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TechnologyController!{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    <button class="red" type="submit">Créer</button>
+    {{ form_end(form) }}
+
+    <div class="d-flex flex-row my-5 ">
+        {% for tech in techs %}
+            <div class="mx-2 w-25 border border-secoundary  d-flex flex-column align-items-center">
+                <a href="{{ path('edit_technology',{'id':tech.id}) }}">Modifier</a>
+                <a href="{{ path('remove_technology',{'id':tech.id}) }}">Supprimer</a>
+                <span class="fs-2">{{ tech.name }}</span>
+
+                {% if proj.image is not null %}
+                <img class="w-50" src="{{ vich_uploader_asset(tech.image) }}" alt="{{ tech.name }}">
+           {% endif %}
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
