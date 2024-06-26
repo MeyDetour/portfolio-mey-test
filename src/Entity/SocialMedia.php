@@ -21,6 +21,9 @@ class SocialMedia
     #[ORM\Column(type: Types::TEXT)]
     private ?string $link = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $display = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -46,6 +49,18 @@ class SocialMedia
     public function setLink(string $link): static
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getDisplay(): ?string
+    {
+        return $this->display;
+    }
+
+    public function setDisplay(?string $display): static
+    {
+        $this->display = $display;
 
         return $this;
     }

@@ -142,7 +142,7 @@ class ApiController extends AbstractController
             [
                 "id" => $datum->getId(),
                 "name" => $datum->getName(),
-                "imageName" => $datum->$imageName(),
+                "imageName" => $imageName,
                 "description" => $datum->getDescription(),
                 "link" => $datum->getLink(),
                 "image" => $imageUrl,

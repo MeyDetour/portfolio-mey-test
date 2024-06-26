@@ -122,7 +122,8 @@ install-vich:
 install-liip:
 	$(COMPOSER) require liip/imagine-bundle
 
-
+install-dropzone:
+	$(COMPOSER) require symfony/ux-dropzone
 
 # liip_imagine:
 #     driver: "gd"
