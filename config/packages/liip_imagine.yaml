@@ -19,3 +19,5 @@ liip_imagine:
             quality: 80
             filters:
                 thumbnail: { size: [48, 48], mode: outbound }
+    twig:
+        mode: lazy
