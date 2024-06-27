@@ -14,7 +14,8 @@
                 <a href="{{ path('edit_media',{'id':media.id}) }}">Modifier</a>
                 <a href="{{ path('remove_media',{'id':media.id}) }}">Supprimer</a>
                 <a href="{{ path('media_add_image',{'id':media.id}) }}">image</a>
-                <span class="fs-2">{{ media.link }}</span>
+                <span class="">{{ media.link }}</span>
+                <span>{{ media.display }}</span>
         {% if media.image is not null %}
                 <img class="w-50" src="{{ vich_uploader_asset(media.image) }}" alt="{{ media.image.imageName }}">
           {% endif %}

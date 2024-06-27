@@ -184,6 +184,7 @@ class ApiController extends AbstractController
                 "link" => $datum->getLink(),
                 "image" => $imageUrl,
                 "imageName" => $imageName,
+                "display" => $datum->getDisplay(),
             ];
         }
         return $this->json($data);

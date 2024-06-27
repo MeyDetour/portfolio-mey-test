@@ -18,7 +18,7 @@ class SocialMedia
     #[ORM\JoinColumn(nullable: true)]
     private ?Image $image = null;
 
-    #[ORM\Column(type: Types::TEXT)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $link = null;
 
     #[ORM\Column(length: 255, nullable: true)]

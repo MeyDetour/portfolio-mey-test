@@ -14,7 +14,10 @@ class MediaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('link')
+            ->add('link',\Symfony\Component\Form\Extension\Core\Type\TextType::class,[
+                'required'=>false
+            ])
+            ->add('display')
 
         ;
     }
